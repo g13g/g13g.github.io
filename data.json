@@ -1,0 +1,34 @@
+{
+  "name": "Jane Doe",
+  "title": "Software Engineer & Amateur Athlete",
+  "bio": "I build things for the web and run long distances. Passionate about open source, coffee-fueled side projects, and finding the perfect pace. Based in San Francisco.",
+  "avatar": "",
+  "links": [
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/janedoe",
+      "icon": "linkedin"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/janedoe",
+      "icon": "github"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://instagram.com/janedoe",
+      "icon": "instagram"
+    },
+    {
+      "label": "Strava",
+      "url": "https://strava.com/athletes/janedoe",
+      "icon": "strava"
+    },
+    {
+      "label": "X / Twitter",
+      "url": "https://x.com/janedoe",
+      "icon": "x-twitter"
+    }
+  ],
+  "footer": "Made with care"
+}
