@@ -15,6 +15,11 @@
       "icon": "github"
     },
     {
+      "label": "X / Twitter",
+      "url": "https://x.com/ginonl",
+      "icon": "x-twitter"
+    },
+    {
       "label": "Instagram",
       "url": "https://instagram.com/ginonl",
       "icon": "instagram"
@@ -23,11 +28,6 @@
       "label": "Strava",
       "url": "https://www.strava.com/athletes/3998280",
       "icon": "strava"
-    },
-    {
-      "label": "X / Twitter",
-      "url": "https://x.com/ginonl",
-      "icon": "x-twitter"
     },
     {
       "label": "Mixcloud",
