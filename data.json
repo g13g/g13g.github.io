@@ -1,32 +1,32 @@
 {
-  "name": "Jane Doe",
+  "name": "Gino Mangnoesing",
   "title": "Software Engineer & Amateur Athlete",
-  "bio": "I build things for the web and run long distances. Passionate about open source, coffee-fueled side projects, and finding the perfect pace. Based in San Francisco.",
+  "bio": "I build things for the web and run long distances. Passionate about open source, coffee-fueled side projects, and finding the perfect pace. Based in Rotterdam.",
   "avatar": "",
   "links": [
     {
       "label": "LinkedIn",
-      "url": "https://linkedin.com/in/janedoe",
+      "url": "https://www.linkedin.com/in/ginonl/",
       "icon": "linkedin"
     },
     {
       "label": "GitHub",
-      "url": "https://github.com/janedoe",
+      "url": "https://github.com/g13g",
       "icon": "github"
     },
     {
       "label": "Instagram",
-      "url": "https://instagram.com/janedoe",
+      "url": "https://instagram.com/ginonl",
       "icon": "instagram"
     },
     {
       "label": "Strava",
-      "url": "https://strava.com/athletes/janedoe",
+      "url": "https://www.strava.com/athletes/3998280",
       "icon": "strava"
     },
     {
       "label": "X / Twitter",
-      "url": "https://x.com/janedoe",
+      "url": "https://x.com/ginonl",
       "icon": "x-twitter"
     }
   ],
