@@ -1,7 +1,7 @@
 {
   "name": "Gino Mangnoesing",
   "title": "Software Engineer · Runner · DJ",
-  "bio": "I write code, log miles, and dig through record crates. Always chasing the perfect pace — on the road or behind the decks. Based in Rotterdam.",
+  "bio": "I write code, log miles, and dig through record crates. Always chasing the perfect pace — on the road or behind the decks.",
   "avatar": "https://github.com/g13g.png",
   "links": [
     {
@@ -30,5 +30,5 @@
       "icon": "x-twitter"
     }
   ],
-  "footer": "Made with care"
+  "footer": "Rotterdam, NL"
 }
