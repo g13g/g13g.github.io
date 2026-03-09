@@ -18,38 +18,86 @@
     }
 
     :root {
-      --bg: #0e0e10;
-      --card-bg: #18181b;
-      --border: #27272a;
-      --text-primary: #fafafa;
-      --text-secondary: #a1a1aa;
-      --accent: #e4e4e7;
-      --btn-bg: #27272a;
-      --btn-bg-hover: #3f3f46;
-      --btn-border: #3f3f46;
-      --shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.4);
-      --radius: 14px;
-      --btn-radius: 10px;
+      --grad-a: #7c3aed;
+      --grad-b: #4f46e5;
+      --radius: 20px;
+      --btn-radius: 12px;
     }
 
     body {
       min-height: 100vh;
-      background: var(--bg);
+      background: #07070f;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       padding: 2rem 1rem;
-      color: var(--text-primary);
+      color: #fafafa;
+      overflow-x: hidden;
+    }
+
+    /* Animated background orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: var(--grad-a);
+      top: -120px; left: -100px;
+      animation: drift1 12s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: var(--grad-a);
+      bottom: -100px; right: -80px;
+      animation: drift2 10s ease-in-out infinite alternate;
+    }
+    .orb-3 {
+      width: 300px; height: 300px;
+      background: var(--grad-b);
+      bottom: 20%; left: 10%;
+      animation: drift3 14s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(60px, 80px) scale(1.1); }
+    }
+    @keyframes drift2 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-50px, -60px) scale(1.15); }
+    }
+    @keyframes drift3 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(40px, -40px) scale(0.9); }
+    }
+
+    /* Card */
+    #card-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      border-radius: calc(var(--radius) + 1.5px);
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-a));
+      background-size: 300% 300%;
+      animation: border-shift 6s ease infinite;
+    }
+    @keyframes border-shift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     #card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: rgba(10, 10, 18, 0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
       width: 100%;
-      max-width: 420px;
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
@@ -57,181 +105,183 @@
       gap: 1.25rem;
     }
 
+    /* Avatar */
+    .avatar-ring {
+      padding: 3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+      background-size: 200% 200%;
+      animation: border-shift 4s ease infinite;
+      flex-shrink: 0;
+    }
     #avatar {
       width: 88px;
       height: 88px;
       border-radius: 50%;
-      background: var(--btn-bg);
-      border: 2px solid var(--border);
+      background: #1a1a2e;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      border: 3px solid #07070f;
     }
-
     #avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     #avatar .avatar-placeholder {
       font-size: 2.25rem;
-      color: var(--text-secondary);
+      color: #52525b;
     }
 
+    /* Text */
     .header {
       text-align: center;
       display: flex;
       flex-direction: column;
       gap: 0.35rem;
     }
-
     #name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #e0d7ff, #c7d2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
     #title {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
+      font-size: 0.82rem;
+      color: #71717a;
       font-weight: 400;
+      letter-spacing: 0.02em;
     }
-
     #bio {
       font-size: 0.875rem;
-      line-height: 1.65;
-      color: var(--text-secondary);
+      line-height: 1.7;
+      color: #a1a1aa;
       text-align: center;
       max-width: 340px;
     }
 
+    /* Divider */
     .divider {
       width: 100%;
       height: 1px;
-      background: var(--border);
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(79,70,229,0.4), transparent);
     }
 
+    /* Links */
     #links {
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 0.625rem;
     }
-
     .link-btn {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 0.75rem;
       width: 100%;
-      padding: 0.75rem 1rem;
-      background: var(--btn-bg);
-      border: 1px solid var(--btn-border);
+      padding: 0.8rem 1.1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--btn-radius);
-      color: var(--text-primary);
+      color: #e4e4e7;
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      overflow: hidden;
     }
-
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-a));
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      border-radius: inherit;
+    }
+    .link-btn:hover::before { opacity: 0.12; }
     .link-btn:hover {
-      background: var(--btn-bg-hover);
-      border-color: #52525b;
-      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
     }
-
-    .link-btn:active {
-      transform: translateY(0);
-    }
+    .link-btn:active { transform: translateY(0); }
 
     .link-btn .icon {
+      position: relative;
       width: 20px;
       text-align: center;
       font-size: 1rem;
-      color: var(--text-secondary);
+      color: #a1a1aa;
       flex-shrink: 0;
     }
-
     .link-btn .label {
+      position: relative;
       flex: 1;
     }
-
     .link-btn .arrow {
-      color: var(--text-secondary);
-      font-size: 0.75rem;
+      position: relative;
+      color: #52525b;
+      font-size: 0.7rem;
       flex-shrink: 0;
+      transition: color 0.2s ease;
     }
+    .link-btn:hover .arrow { color: #a1a1aa; }
 
     #footer {
-      font-size: 0.75rem;
-      color: #52525b;
+      font-size: 0.72rem;
+      color: #3f3f46;
       text-align: center;
-    }
-
-    /* Loading skeleton */
-    .skeleton {
-      background: linear-gradient(90deg, var(--btn-bg) 25%, var(--btn-bg-hover) 50%, var(--btn-bg) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 6px;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f4f4f5;
-        --card-bg: #ffffff;
-        --border: #e4e4e7;
-        --text-primary: #09090b;
-        --text-secondary: #71717a;
-        --btn-bg: #f4f4f5;
-        --btn-bg-hover: #e4e4e7;
-        --btn-border: #e4e4e7;
-        --shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
-      }
+      letter-spacing: 0.03em;
     }
   </style>
 </head>
 <body>
-  <div id="card">
-    <div id="avatar"><span class="avatar-placeholder"><i class="fa-solid fa-user"></i></span></div>
-    <div class="header">
-      <div id="name"></div>
-      <div id="title"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div id="card-wrap">
+    <div id="card">
+      <div class="avatar-ring">
+        <div id="avatar">
+          <span class="avatar-placeholder"><i class="fa-solid fa-user"></i></span>
+        </div>
+      </div>
+      <div class="header">
+        <div id="name"></div>
+        <div id="title"></div>
+      </div>
+      <p id="bio"></p>
+      <div class="divider"></div>
+      <div id="links"></div>
+      <div id="footer"></div>
     </div>
-    <p id="bio"></p>
-    <div class="divider"></div>
-    <div id="links"></div>
-    <div id="footer"></div>
   </div>
 
   <script>
     const ICON_MAP = {
-      linkedin:   "fa-brands fa-linkedin",
-      github:     "fa-brands fa-github",
-      instagram:  "fa-brands fa-instagram",
-      strava:     "fa-brands fa-strava",
-      "x-twitter":"fa-brands fa-x-twitter",
-      twitter:    "fa-brands fa-x-twitter",
-      youtube:    "fa-brands fa-youtube",
-      tiktok:     "fa-brands fa-tiktok",
-      twitch:     "fa-brands fa-twitch",
-      discord:    "fa-brands fa-discord",
-      spotify:    "fa-brands fa-spotify",
-      medium:     "fa-brands fa-medium",
-      substack:   "fa-solid fa-newspaper",
-      website:    "fa-solid fa-globe",
-      email:      "fa-solid fa-envelope",
-      phone:      "fa-solid fa-phone",
+      linkedin:    "fa-brands fa-linkedin",
+      github:      "fa-brands fa-github",
+      instagram:   "fa-brands fa-instagram",
+      strava:      "fa-brands fa-strava",
+      "x-twitter": "fa-brands fa-x-twitter",
+      twitter:     "fa-brands fa-x-twitter",
+      youtube:     "fa-brands fa-youtube",
+      tiktok:      "fa-brands fa-tiktok",
+      twitch:      "fa-brands fa-twitch",
+      discord:     "fa-brands fa-discord",
+      spotify:     "fa-brands fa-spotify",
+      medium:      "fa-brands fa-medium",
+      substack:    "fa-solid fa-newspaper",
+      website:     "fa-solid fa-globe",
+      email:       "fa-solid fa-envelope",
+      phone:       "fa-solid fa-phone",
     };
 
     async function init() {
@@ -251,22 +301,18 @@
     function render(data) {
       document.title = data.name || "Links";
 
-      // Avatar
       const avatarEl = document.getElementById("avatar");
       if (data.avatar) {
         avatarEl.innerHTML = `<img src="${data.avatar}" alt="${data.name}" />`;
       }
 
-      // Text content
       document.getElementById("name").textContent = data.name || "";
       document.getElementById("title").textContent = data.title || "";
       document.getElementById("bio").textContent = data.bio || "";
       document.getElementById("footer").textContent = data.footer || "";
 
-      // Links
       const linksEl = document.getElementById("links");
       linksEl.innerHTML = "";
-
       (data.links || []).forEach(link => {
         const iconClass = ICON_MAP[link.icon] || "fa-solid fa-link";
         const a = document.createElement("a");
