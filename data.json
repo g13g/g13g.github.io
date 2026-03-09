@@ -28,6 +28,11 @@
       "label": "X / Twitter",
       "url": "https://x.com/ginonl",
       "icon": "x-twitter"
+    },
+    {
+      "label": "Mixcloud",
+      "url": "https://mixcloud.com/lowdash",
+      "icon": "mixcloud"
     }
   ],
   "footer": "Rotterdam, NL"
